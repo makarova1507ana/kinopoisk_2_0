@@ -11,7 +11,7 @@ let results = document.getElementById('results'); // div results
 
 //    // запрос к серверу для получения json-файла 
 //http://www.omdbapi.com/?apikey=[yourkey]&
-const url = 'http://www.omdbapi.com/?apikey=23f82659';
+const url = 'https://www.omdbapi.com/?apikey=23f82659';
 // films were founded 5718 -> page 1 первые 10 фильмов(с 1 до 10) -> page 2 следующие 10 фильмов(с 11 до 20)
 //http://www.omdbapi.com/?apikey=23f8265&s='hello'&page=10  - выдаст с 101 по 110 фильмы
 
