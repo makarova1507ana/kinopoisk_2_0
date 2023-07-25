@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KINOPOISK_2_0</title>
+</head>
+
+<body>
+    <!-- // //макет для поиска - форма, с текст-input и выпадющий список и кнопка -->
+    <h3> Search </h3>
+    <form>
+        <label>Title:<input id="title" type="text"></label><br>
+        <label>Type:
+            <select name="type">
+                <option id="movie" value="Movie">Movie</option>
+                <option id="series" value="Series">Series</option>
+                <option id="episode" value="Episode">Episode</option>
+            </select><br>
+        </label>
+        <input id="btn_search" type="button" value="search">
+        <div id="results"></div>
+    </form>
+    <!-- <table>
+        <tr>
+            <th>th</th>
+            <td>td</td>
+        </tr>
+    </table> -->
+    <script src="script.js"></script>
+</body>
+
+</html>
