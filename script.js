@@ -8,7 +8,7 @@
 
 let btn_search = document.getElementById('btn_search'); // btn_search
 let results = document.getElementById('results'); // div results
-
+page = 1;
 //    // запрос к серверу для получения json-файла 
 //http://www.omdbapi.com/?apikey=[yourkey]&
 const url = 'https://www.omdbapi.com/?apikey=23f82659';
@@ -76,7 +76,7 @@ function get_movie(array) {
     for (let i = 0; i < array.length; i++) {
         block_movie(array[i]);
     }
-
+    create_btn_next_page();
 }
 
 show_details = Event => {
@@ -150,5 +150,58 @@ function block_movie(obj) {
     btn_details.value = "details";
     results.append(btn_details);
     btn_details.addEventListener('click', show_details); // btn_deatails добавить обработку событий 
+
+
+
+
+}
+
+function create_btn_next_page() {
+    /*next_page */
+
+    btn = document.createElement('input');
+    btn.type = "button";
+    btn.id = "btn-next_page";
+    btn.value = "next_page";
+    results.after(btn);
+    btn.addEventListener('click', show_next_page); // btn_deatails добавить обработку событий 
+}
+
+function create_btn_previous_page() {
+    /*next_page */
+
+    btn = document.createElement('input');
+    btn.type = "button";
+    btn.id = "btn-previous_page";
+    btn.value = "previous_page";
+    results.after(btn);
+    btn.addEventListener('click', show_previous_page); // btn_deatails добавить обработку событий 
+}
+
+function show_next_page() {
+    //  create_btn_previous_page()
+
+    document.getElementById('btn-next_page').remove();
+    page++;
+    requestUrl = currentUrl();
+    requestUrl += '&page=' + page;
+    sendRequest(requestUrl)
+        .then(data => (console.log(data), result(data)))
+        .catch(err => (
+            console.log('error data', err))) //в случае неуспешного выполнения кода
+
+}
+
+function show_previous_page() {
+    document.getElementById('btn-previous_page').remove();
+    document.getElementById('btn-next_page').remove();
+
+    page--;
+    requestUrl = currentUrl();
+    requestUrl += '&page=' + page;
+    sendRequest(requestUrl)
+        .then(data => (console.log(data), result(data)))
+        .catch(err => (
+            console.log('error data', err))) //в случае неуспешного выполнения кода
 
 }
